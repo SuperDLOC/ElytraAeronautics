@@ -1,0 +1,9 @@
+name: Update Gradle
+run-name: Updating Gradle
+on: [push]
+jobs:
+  Update-Gradle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Gradle Wrapper Action
+        uses: gradle-update/update-gradle-wrapper-action@v1.0.20
