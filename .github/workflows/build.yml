@@ -26,17 +26,17 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java }}
+      - name: Update Gradle Wrapper Action
+        uses: gradle-update/update-gradle-wrapper-action@v1.0.20
       - name: make gradle wrapper executable
         if: ${{ runner.os != 'Windows' }}
         run: chmod +x ./gradlew
       - name: build
         run: ./gradlew build
       - name: capture build artifacts
-        if: ${{ runner.os == 'Linux' && matrix.java == '17' }} # Only upload artifacts built from latest java on one OS
+        if: ${{ runner.os == 'Linux' && matrix.java == '21' }} # Only upload artifacts built from latest java on one OS
         uses: actions/upload-artifact@v2
         with:
           name: Artifacts
           path: build/libs/
-      - name: Update Gradle Wrapper Action
-        uses: gradle-update/update-gradle-wrapper-action@v1.0.20
             
