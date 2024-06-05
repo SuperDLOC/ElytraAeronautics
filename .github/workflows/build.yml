@@ -20,9 +20,6 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v2
-      - name: update gradle
-        id: gradleUpdate
-        uses: EdwarDDay/upgrade-gradle-action@v1
       - name: validate gradle wrapper
         uses: gradle/wrapper-validation-action@v1
       - name: setup jdk ${{ matrix.java }}
@@ -32,6 +29,9 @@ jobs:
       - name: make gradle wrapper executable
         if: ${{ runner.os != 'Windows' }}
         run: chmod +x ./gradlew
+      - name: update gradle
+        id: gradleUpdate
+        uses: EdwarDDay/upgrade-gradle-action@v1
       - name: build
         run: ./gradlew build
       - name: capture build artifacts
