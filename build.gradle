@@ -64,7 +64,3 @@ jar {
 		rename { "${it}_${project.archivesBaseName}"}
 	}
 }
-
-task wrapper(type: Wrapper) {
-   gradleVersion = '8.8' //version required
-}
