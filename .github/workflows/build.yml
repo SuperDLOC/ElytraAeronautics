@@ -31,7 +31,7 @@ jobs:
         run: chmod +x ./gradlew
       - name: update gradle
         id: gradleUpdate
-        uses: EdwarDDay/upgrade-gradle-action@v1
+        uses: EdwarDDay/upgrade-gradle-action@v1.3.0
       - name: build
         run: ./gradlew build
       - name: capture build artifacts
